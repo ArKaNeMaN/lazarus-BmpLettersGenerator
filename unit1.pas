@@ -45,6 +45,7 @@ var Bmp: TBitmap;
 var CharH, CharW, CurW: longint;
 var i: longint;
 var CharsSet, CurChar: UTF8String;
+var FileMap: Text;
 begin
 
   if Edit1.Text[Length(Edit1.Text)] <> PathDelim then
@@ -77,6 +78,9 @@ begin
 
   Bmp.Width:= FindMinPowBiggerOrEqualThan(2, CharW);
   Bmp.Height:= FindMinPowBiggerOrEqualThan(2, CharH);
+
+  System.Assign(FileMap, Edit1.Text + 'map.txt');
+  ReWrite(FileMap);
      
   ProgressBar1.Max:= UTF8Length(CharsSet);
   for i:= 1 to UTF8Length(CharsSet) do begin
@@ -90,11 +94,14 @@ begin
       CurChar
     );
 
+    WriteLn(FileMap, CurChar, ' ', i);
+
     Bmp.SaveToFile(Edit1.Text + IntToStr(i) + '.bmp');
     Bmp.Canvas.Clear();
 
     ProgressBar1.Position:= ProgressBar1.Position + 1;
   end;
+  System.Close(FileMap);
 
   ShowMessage('Done.');
   ProgressBar1.Position:= 0;
