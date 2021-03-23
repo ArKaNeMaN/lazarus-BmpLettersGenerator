@@ -15,15 +15,21 @@ type
   TForm1 = class(TForm)
     Button1: TButton;
     Button2: TButton;
+    Button3: TButton;
+    ColorButton1: TColorButton;
+    ColorButton2: TColorButton;
     Edit1: TEdit;
     Edit2: TEdit;
     FontDialog1: TFontDialog;
     Label1: TLabel;
     Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
     ProgressBar1: TProgressBar;
     SelectDirectoryDialog1: TSelectDirectoryDialog;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
     function FindMinPowBiggerOrEqualThan(const Base: longint; const Num: longint): longint;
@@ -56,9 +62,6 @@ begin
     exit;
   end;
 
-  if not FontDialog1.Execute then
-    exit;
-
   if DirectoryExistsUTF8(Edit1.Text) then
     if DeleteDirectory(Edit1.Text, True) then RemoveDirUTF8(Edit1.Text);
   MkDir(Edit1.Text);
@@ -66,8 +69,9 @@ begin
   Bmp:= TBitmap.Create();
   Bmp.PixelFormat:= pf8bit;
 
-  Bmp.Canvas.Brush.Color:=RGBToColor(0,0,0);
-  Bmp.Canvas.Font:= FontDialog1.Font;
+  Bmp.Canvas.Font:= Edit2.Font;
+  Bmp.Canvas.Font.Color:= ColorButton1.ButtonColor;
+  Bmp.Canvas.Brush.Color:= ColorButton2.ButtonColor;
 
   CharsSet:= String(Edit2.Text);
 
@@ -89,6 +93,7 @@ begin
 
     CurW:= Bmp.Canvas.TextWidth(CurChar);
 
+    Bmp.Canvas.FillRect(0, 0, Bmp.Width, Bmp.Height);
     Bmp.Canvas.TextOut(
       (Bmp.Width - CurW) div 2,
       (Bmp.Height - CharH) div 2,
@@ -98,9 +103,8 @@ begin
     WriteLn(FileMap, CurChar, ' ', i);
 
     Bmp.SaveToFile(Edit1.Text + IntToStr(i) + '.bmp');
-    Bmp.Canvas.Clear();
-
     ProgressBar1.Position:= ProgressBar1.Position + 1;
+    Bmp.Canvas.Clear();
   end;
   System.Close(FileMap);
 
@@ -115,6 +119,12 @@ begin
     exit;
 
   Edit1.Text:= SelectDirectoryDialog1.FileName;
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+  if FontDialog1.Execute then
+    Edit2.Font:= FontDialog1.Font;
 end;
 
 const CHARSSET_FILE = 'chars.txt';

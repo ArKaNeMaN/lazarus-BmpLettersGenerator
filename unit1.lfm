@@ -1,12 +1,11 @@
 object Form1: TForm1
-  Left = 655
-  Height = 178
-  Top = 451
-  Width = 610
-  BorderStyle = bsSingle
+  Left = 656
+  Height = 225
+  Top = 427
+  Width = 608
   Caption = 'Bitmap Letters Generator'
-  ClientHeight = 178
-  ClientWidth = 610
+  ClientHeight = 225
+  ClientWidth = 608
   Icon.Data = {
     3E42000000000100010040400000010020002842000016000000280000004000
     0000800000000100200000000000004000006400000064000000000000000000
@@ -544,14 +543,14 @@ object Form1: TForm1
   LCLVersion = '2.0.8.0'
   object Button1: TButton
     AnchorSideLeft.Control = Owner
-    AnchorSideTop.Control = Edit2
+    AnchorSideTop.Control = ColorButton2
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 8
     Height = 25
-    Top = 104
-    Width = 594
+    Top = 154
+    Width = 592
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 8
     BorderSpacing.Top = 8
@@ -568,7 +567,7 @@ object Form1: TForm1
     Left = 8
     Height = 23
     Top = 25
-    Width = 514
+    Width = 512
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 8
     BorderSpacing.Top = 2
@@ -580,7 +579,7 @@ object Form1: TForm1
     AnchorSideTop.Side = asrCenter
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 530
+    Left = 528
     Height = 23
     Top = 25
     Width = 72
@@ -594,12 +593,11 @@ object Form1: TForm1
   object Edit2: TEdit
     AnchorSideTop.Control = Label2
     AnchorSideTop.Side = asrBottom
-    AnchorSideRight.Control = Owner
-    AnchorSideRight.Side = asrBottom
+    AnchorSideRight.Control = Button3
     Left = 8
     Height = 23
     Top = 73
-    Width = 594
+    Width = 512
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Top = 2
     BorderSpacing.Right = 8
@@ -613,7 +611,7 @@ object Form1: TForm1
     Left = 8
     Height = 15
     Top = 8
-    Width = 594
+    Width = 592
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 8
     BorderSpacing.Top = 8
@@ -630,7 +628,7 @@ object Form1: TForm1
     Left = 8
     Height = 15
     Top = 56
-    Width = 594
+    Width = 592
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 8
     BorderSpacing.Top = 8
@@ -646,13 +644,87 @@ object Form1: TForm1
     AnchorSideRight.Side = asrBottom
     Left = 8
     Height = 32
-    Top = 137
-    Width = 594
+    Top = 187
+    Width = 592
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 8
     BorderSpacing.Top = 8
     BorderSpacing.Right = 8
     TabOrder = 4
+  end
+  object ColorButton1: TColorButton
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Label3
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = ColorButton2
+    Left = 8
+    Height = 25
+    Top = 121
+    Width = 286
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 2
+    BorderSpacing.Right = 8
+    BorderWidth = 2
+    ButtonColorSize = 16
+    ButtonColor = clWhite
+  end
+  object Label3: TLabel
+    AnchorSideLeft.Control = ColorButton1
+    AnchorSideTop.Control = Label4
+    Left = 8
+    Height = 15
+    Top = 104
+    Width = 164
+    Caption = 'Text Color (Font color override)'
+    ParentColor = False
+  end
+  object ColorButton2: TColorButton
+    AnchorSideLeft.Control = Owner
+    AnchorSideLeft.Side = asrCenter
+    AnchorSideTop.Control = Label4
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 302
+    Height = 25
+    Top = 121
+    Width = 298
+    Anchors = [akTop, akRight]
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 2
+    BorderSpacing.Right = 8
+    BorderWidth = 2
+    ButtonColorSize = 16
+    ButtonColor = clBlack
+  end
+  object Label4: TLabel
+    AnchorSideLeft.Control = ColorButton2
+    AnchorSideTop.Control = Edit2
+    AnchorSideTop.Side = asrBottom
+    Left = 302
+    Height = 15
+    Top = 104
+    Width = 96
+    BorderSpacing.Top = 8
+    Caption = 'Background Color'
+    ParentColor = False
+  end
+  object Button3: TButton
+    AnchorSideTop.Control = Edit2
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 528
+    Height = 23
+    Top = 73
+    Width = 72
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 8
+    BorderSpacing.Right = 8
+    Caption = 'Font...'
+    OnClick = Button3Click
+    TabOrder = 5
   end
   object FontDialog1: TFontDialog
     MinFontSize = 0
