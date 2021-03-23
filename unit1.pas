@@ -64,6 +64,7 @@ begin
   MkDir(Edit1.Text);
 
   Bmp:= TBitmap.Create();
+  Bmp.PixelFormat:= pf8bit;
 
   Bmp.Canvas.Brush.Color:=RGBToColor(0,0,0);
   Bmp.Canvas.Font:= FontDialog1.Font;
@@ -105,6 +106,7 @@ begin
 
   ShowMessage('Done.');
   ProgressBar1.Position:= 0;
+  Bmp.Free();
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);
