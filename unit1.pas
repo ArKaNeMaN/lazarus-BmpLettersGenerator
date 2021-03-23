@@ -62,9 +62,11 @@ begin
     exit;
   end;
 
-  if DirectoryExistsUTF8(Edit1.Text) then
-    if DeleteDirectory(Edit1.Text, True) then RemoveDirUTF8(Edit1.Text);
-  MkDir(Edit1.Text);
+  //if DirectoryExistsUTF8(Edit1.Text) then
+  //  if DeleteDirectory(Edit1.Text, True) then RemoveDirUTF8(Edit1.Text);
+  //MkDir(Edit1.Text);
+  if not DirectoryExistsUTF8(Edit1.Text) then
+    MkDir(Edit1.Text);
 
   Bmp:= TBitmap.Create();
   Bmp.PixelFormat:= pf8bit;
