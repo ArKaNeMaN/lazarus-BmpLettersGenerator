@@ -1,11 +1,11 @@
 object Form1: TForm1
-  Left = 656
+  Left = 661
   Height = 225
   Top = 427
-  Width = 608
+  Width = 598
   Caption = 'Bitmap Letters Generator'
   ClientHeight = 225
-  ClientWidth = 608
+  ClientWidth = 598
   Icon.Data = {
     3E42000000000100010040400000010020002842000016000000280000004000
     0000800000000100200000000000004000006400000064000000000000000000
@@ -542,15 +542,16 @@ object Form1: TForm1
   OnCreate = FormCreate
   LCLVersion = '2.0.8.0'
   object Button1: TButton
-    AnchorSideLeft.Control = Owner
+    AnchorSideLeft.Control = ComboBox1
+    AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = ColorButton2
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 8
+    Left = 216
     Height = 25
     Top = 154
-    Width = 592
+    Width = 374
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 8
     BorderSpacing.Top = 8
@@ -567,7 +568,7 @@ object Form1: TForm1
     Left = 8
     Height = 23
     Top = 25
-    Width = 512
+    Width = 502
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 8
     BorderSpacing.Top = 2
@@ -579,7 +580,7 @@ object Form1: TForm1
     AnchorSideTop.Side = asrCenter
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 528
+    Left = 518
     Height = 23
     Top = 25
     Width = 72
@@ -597,7 +598,7 @@ object Form1: TForm1
     Left = 8
     Height = 23
     Top = 73
-    Width = 512
+    Width = 502
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Top = 2
     BorderSpacing.Right = 8
@@ -611,7 +612,7 @@ object Form1: TForm1
     Left = 8
     Height = 15
     Top = 8
-    Width = 592
+    Width = 582
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 8
     BorderSpacing.Top = 8
@@ -628,7 +629,7 @@ object Form1: TForm1
     Left = 8
     Height = 15
     Top = 56
-    Width = 592
+    Width = 582
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 8
     BorderSpacing.Top = 8
@@ -645,7 +646,7 @@ object Form1: TForm1
     Left = 8
     Height = 32
     Top = 187
-    Width = 592
+    Width = 582
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 8
     BorderSpacing.Top = 8
@@ -660,7 +661,7 @@ object Form1: TForm1
     Left = 8
     Height = 25
     Top = 121
-    Width = 286
+    Width = 276
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 8
     BorderSpacing.Top = 2
@@ -686,7 +687,7 @@ object Form1: TForm1
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 302
+    Left = 292
     Height = 25
     Top = 121
     Width = 298
@@ -702,7 +703,7 @@ object Form1: TForm1
     AnchorSideLeft.Control = ColorButton2
     AnchorSideTop.Control = Edit2
     AnchorSideTop.Side = asrBottom
-    Left = 302
+    Left = 292
     Height = 15
     Top = 104
     Width = 96
@@ -715,7 +716,7 @@ object Form1: TForm1
     AnchorSideTop.Side = asrCenter
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 528
+    Left = 518
     Height = 23
     Top = 73
     Width = 72
@@ -725,6 +726,30 @@ object Form1: TForm1
     Caption = 'Font...'
     OnClick = Button3Click
     TabOrder = 5
+  end
+  object ComboBox1: TComboBox
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = ColorButton1
+    AnchorSideTop.Side = asrBottom
+    AnchorSideBottom.Control = Button3
+    AnchorSideBottom.Side = asrBottom
+    Left = 8
+    Height = 23
+    Top = 154
+    Width = 200
+    Anchors = [akTop, akLeft, akBottom]
+    AutoSize = False
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 8
+    ItemHeight = 15
+    ItemIndex = 0
+    Items.Strings = (
+      'Антиалиасинг: Вкл'
+      'Антиалиасинг: Выкл'
+      'Антиалиасинг: Грубо'
+    )
+    TabOrder = 6
+    Text = 'Антиалиасинг: Вкл'
   end
   object FontDialog1: TFontDialog
     MinFontSize = 0

@@ -18,6 +18,7 @@ type
     Button3: TButton;
     ColorButton1: TColorButton;
     ColorButton2: TColorButton;
+    ComboBox1: TComboBox;
     Edit1: TEdit;
     Edit2: TEdit;
     FontDialog1: TFontDialog;
@@ -33,6 +34,8 @@ type
     procedure FormCreate(Sender: TObject);
   private
     function FindMinPowBiggerOrEqualThan(const Base: longint; const Num: longint): longint;
+    function GetAAMode: TAntialiasingMode;    
+    function GetAAModeFont: TFontQuality;
   public
 
   end;
@@ -76,6 +79,9 @@ begin
   Bmp.Canvas.Brush.Color:= ColorButton2.ButtonColor;
 
   CharsSet:= String(Edit2.Text);
+
+  Bmp.Canvas.Font.Quality:= GetAAModeFont;
+  Bmp.Canvas.AntialiasingMode:= GetAAMode;
 
   CharH:= Bmp.Canvas.TextHeight(CharsSet[1]);
   CharW:= 0;
@@ -157,6 +163,26 @@ var Pow: real;
 begin
   Pow:= Floor(ln(Num) / ln(Base));
   FindMinPowBiggerOrEqualThan:= Floor(Power(Base, Pow+1));
+end;
+
+function TForm1.GetAAMode: TAntialiasingMode;
+begin
+  case ComboBox1.ItemIndex of
+    0: GetAAMode:= amOn;
+    1: GetAAMode:= amOff;
+    2: GetAAMode:= amDontCare;
+  end;
+
+end;
+
+function TForm1.GetAAModeFont: TFontQuality;
+begin
+  case ComboBox1.ItemIndex of
+    0: GetAAModeFont:= fqAntialiased;
+    1: GetAAModeFont:= fqNonAntialiased;
+    2: GetAAModeFont:= fqDraft;
+  end;
+
 end;
 
 end.

@@ -30,3 +30,4 @@ lib/
 *.app/
 
 output/
+*.zip
